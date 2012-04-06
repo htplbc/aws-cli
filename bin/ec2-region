@@ -1,0 +1,9 @@
+# Interactively switch EC2 regions. Source this file or use it as a function in
+# bash or zsh.
+
+select region in ap-northeast-1 ap-southeast-1 eu-west-1 sa-east-1 us-east-1 us-west-1 us-west-2; do
+    export EC2_REGION=$region
+    break
+done
+
+unset region
