@@ -20,6 +20,7 @@ I place this stuff in `~/.aws-cli` and then add the following to my `.bashrc`:
 I also have a separate `~/.aws` directory where I keep credentials files. In my `.bashrc`:
 
     export EC2_REGION=us-west-1
+    export EC2_URL=ec2.us-west-1.amazonaws.com
     export AWS_CREDENTIAL_FILE=~/.aws/bourgeois-bits.credentials
     export EC2_PRIVATE_KEY=~/.aws/pk-XXX.pem
     export EC2_CERT=~/.aws/cert-XXX.pem
