@@ -2,17 +2,23 @@
 # bash or zsh.
 
 
-ec2_endpoints[euwest1]="ec2.eu-west-1.amazonaws.com"
-ec2_endpoints[saeast1]="ec2.sa-east-1.amazonaws.com"
-ec2_endpoints[useast1]="ec2.us-east-1.amazonaws.com"
-ec2_endpoints[apnortheast1]="ec2.ap-northeast-1.amazonaws.com"
-ec2_endpoints[uswest2]="ec2.us-west-2.amazonaws.com"
-ec2_endpoints[uswest1]="ec2.us-west-1.amazonaws.com"
-ec2_endpoints[apsoutheast1]="ec2.ap-southeast-1.amazonaws.com"
-
 select region in ap-northeast-1 ap-southeast-1 eu-west-1 sa-east-1 us-east-1 us-west-1 us-west-2; do
     export EC2_REGION=$region
-    export EC2_URL=${ec2_endpoints[`echo $region | tr -d '-'`]}
+    if [ "$region" == "ap-northeast-1" ]; then
+        export EC2_URL="http://ec2.ap-northeast-1.amazonaws.com/"
+    elif [ "$region" == "ap-southeast-1" ]; then
+        export EC2_URL="http://ec2.ap-southeast-1.amazonaws.com/"
+    elif [ "$region" == "eu-west-1" ]; then
+        export EC2_URL="http://ec2.eu-west-1.amazonaws.com/"
+    elif [ "$region" == "sa-east-1" ]; then
+        export EC2_URL="http://ec2.sa-east-1.amazonaws.com/"
+    elif [ "$region" == "us-east-1" ]; then
+        export EC2_URL="http://ec2.us-east-1.amazonaws.com/"
+    elif [ "$region" == "us-west-1" ]; then
+        export EC2_URL="http://ec2.us-west-1.amazonaws.com/"
+    else
+        export EC2_URL="http://ec2.us-west-2.amazonaws.com/"
+    fi
     break
 done
 
