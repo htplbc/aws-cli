@@ -14,16 +14,21 @@ I place this stuff in `~/.aws-cli` and then add the following to my `.bashrc`:
     export AWS_ELB_HOME=~/.aws-cli/elb
     export AWS_RDS_HOME=~/.aws-cli/rds
     export AWS_IAM_HOME=~/.aws-cli/iam
+    export AWS_EB_HOME=~/.aws-cli/eb-api
     export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
-    export PATH=$PATH:~/.aws-cli/ec2/bin:~/.aws-cli/as/bin:~/.aws-cli/cfn/bin:~/.aws-cli/mon/bin:~/.aws-cli/elb/bin:~/.aws-cli/rds/bin:~/.aws-cli/iam/bin
+    export PATH=$PATH:~/.aws-cli/ec2/bin:~/.aws-cli/as/bin:~/.aws-cli/cfn/bin:~/.aws-cli/mon/bin:~/.aws-cli/elb/bin:~/.aws-cli/rds/bin:~/.aws-cli/iam/bin:~/.aws-cli/eb-api/bin
+    alias eb="python2.7 ~/.aws-cli/eb/python2.7/eb"
+
 
 I also have a separate `~/.aws` directory where I keep credentials files. In my `.bashrc`:
 
-    export EC2_REGION=us-west-1
-    export EC2_URL=ec2.us-west-1.amazonaws.com
+    export EC2_REGION=us-west-2
+    export EC2_URL="http://ec2.us-west-2.amazonaws.com/"
     export AWS_CREDENTIAL_FILE=~/.aws/bourgeois-bits.credentials
     export EC2_PRIVATE_KEY=~/.aws/pk-XXX.pem
     export EC2_CERT=~/.aws/cert-XXX.pem
+    export ELASTICBEANSTALK_URL="http://elasticbeanstalk.us-west-2.amazonaws.com/"
+    
 
 -Dave
 
