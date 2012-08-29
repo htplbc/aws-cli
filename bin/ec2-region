@@ -3,22 +3,8 @@
 
 
 select region in ap-northeast-1 ap-southeast-1 eu-west-1 sa-east-1 us-east-1 us-west-1 us-west-2; do
-    export EC2_REGION=$region
-    if [ "$region" == "ap-northeast-1" ]; then
-        export EC2_URL="http://ec2.ap-northeast-1.amazonaws.com/"
-    elif [ "$region" == "ap-southeast-1" ]; then
-        export EC2_URL="http://ec2.ap-southeast-1.amazonaws.com/"
-    elif [ "$region" == "eu-west-1" ]; then
-        export EC2_URL="http://ec2.eu-west-1.amazonaws.com/"
-    elif [ "$region" == "sa-east-1" ]; then
-        export EC2_URL="http://ec2.sa-east-1.amazonaws.com/"
-    elif [ "$region" == "us-east-1" ]; then
-        export EC2_URL="http://ec2.us-east-1.amazonaws.com/"
-    elif [ "$region" == "us-west-1" ]; then
-        export EC2_URL="http://ec2.us-west-1.amazonaws.com/"
-    else
-        export EC2_URL="http://ec2.us-west-2.amazonaws.com/"
-    fi
+    export EC2_REGION=${region}
+    export EC2_URL=$(printf "http://ec2.%s.amazonaws.com/" ${region})
     break
 done
 
